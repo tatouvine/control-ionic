@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Ma Liste</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>Création d'une nouvelle ville</h2>
+  <button ion-button (click)="onGoToCreate()">Création</button>
+  <h2>Liste de mes villes</h2>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4 *ngFor="let ville of villes">
+        <ion-list (click)="onGoToVille(ville.data.nom,ville.id)">
+          <ion-item><img [src]="ville.data.urlimg" [alt]="ville.data.nom"></ion-item>
+          <ion-item>{{ville.data.nom}}</ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

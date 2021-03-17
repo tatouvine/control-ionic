@@ -1,0 +1,74 @@
+<!--
+  Generated template for the VillePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Ville</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<button ion-button (click)="onGoAccessModif()">Rendre Modifiable</button>
+  <div *ngIf="modif; then content else otherContent"></div>
+    <ng-template #content>
+
+      <ion-item>
+        <ion-label>Affiche</ion-label>
+        <ion-input type="text" [(ngModel)]="ville.data.urlimg"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Nom</ion-label>
+        <ion-input type="text" [(ngModel)]="ville.data.nom"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>habitant</ion-label>
+        <ion-input type="text" [(ngModel)]="ville.data.habitant"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Maire</ion-label>
+        <ion-input type="text" [(ngModel)]="ville.data.maire"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Superficie</ion-label>
+        <ion-input type="text" [(ngModel)]="ville.data.taille"></ion-input>
+      </ion-item>
+
+      <br>
+      <div class="text-center">
+        <button ion-button (click)="onModif()">Modifier</button>
+      </div>
+    </ng-template>
+  <ng-template #otherContent>
+    <ion-grid *ngIf="ville">
+      <ion-row>
+        <ion-col col-6>
+          <button ion-button (click)="onDelete()">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-6>
+          <img [src]="ville.data.urlimg" [alt]="ville.data.title">
+        </ion-col>
+        <ion-col col-6>
+          <strong>Nom de la ville :</strong> <br>
+          {{ville.data.nom}} <br>
+          <strong>Maire :</strong><br>
+          {{ville.data.maire}} <br>
+          <strong>Nombre d'habitant :</strong> <br>
+          {{ville.data.habitant}} <br>
+          <strong>Superficie :</strong> <br>
+          {{ville.data.taille}} <br>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ng-template>
+</ion-content>
