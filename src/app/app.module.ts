@@ -15,6 +15,8 @@ import { VilleProvider } from '../providers/ville/ville';
 
 import {AngularFireModule} from 'angularfire2'
 import {AngularFirestoreModule} from 'angularfire2/firestore'
+import {Camera} from "@ionic-native/camera";
+import {PhotosPageModule} from "../pages/photos/photos.module";
 
 const firebase = {
   apiKey: 'AIzaSyAl0bDmauZ4vCcolAjyZcMfPyTRbAxi87Y',
@@ -39,7 +41,8 @@ const firebase = {
     VillePageModule,
     VilleNewPageModule,
     AngularFireModule.initializeApp(firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    PhotosPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -50,7 +53,8 @@ const firebase = {
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    VilleProvider
+    VilleProvider,
+    Camera
   ]
 })
 export class AppModule {}
